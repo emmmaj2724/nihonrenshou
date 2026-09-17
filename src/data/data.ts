@@ -2686,7 +2686,7 @@ export const lesson6 = [
   },
   {
     lesson: 6,
-    kanji: "味",
+    kanji: "鰺",
     kana: "あじ",
     meaning: "horse mackarel",
     pos: "noun"

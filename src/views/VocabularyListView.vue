@@ -49,7 +49,7 @@
 
 
         <!-- Vocabulary Table -->
-        <div class="table-responsive" style="max-height: 75vh; overflow-y: auto;">
+        <div class="table-responsive" style="max-height: 90vh; overflow-y: auto;">
 
             <table class="table table-striped table-bordered mb-0">
 
