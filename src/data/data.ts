@@ -2686,7 +2686,7 @@ export const lesson6 = [
   },
   {
     lesson: 6,
-    kanji: "鰺",
+    kanji: "味",
     kana: "あじ",
     meaning: "horse mackarel",
     pos: "noun"
@@ -4901,7 +4901,7 @@ export const lesson11 = [
     lesson: 11,
     kanji: "～人",
     kana: "～にん",
-    meaning: "",
+    meaning: "～ people",
     pos: "noun"
   },
   {
@@ -4922,7 +4922,7 @@ export const lesson11 = [
     lesson: 11,
     kanji: "～回",
     kana: "～かい",
-    meaning: "",
+    meaning: "～ times",
     pos: "noun"
   },
   {
@@ -5090,28 +5090,28 @@ export const lesson11 = [
     lesson: 11,
     kanji: "～時間",
     kana: "～じかん",
-    meaning: "",
+    meaning: "～ hours",
     pos: "noun"
   },
   {
     lesson: 11,
     kanji: "～週間",
     kana: "～しゅうかん",
-    meaning: "",
+    meaning: "～ weeks",
     pos: "noun"
   },
   {
     lesson: 11,
     kanji: "～か月",
     kana: "～かげつ",
-    meaning: "",
+    meaning: "～ months",
     pos: "noun"
   },
   {
     lesson: 11,
     kanji: "～年",
     kana: "～ねん",
-    meaning: "",
+    meaning: "～ years",
     pos: "noun"
   },
   {
@@ -14434,7 +14434,7 @@ export const lesson34 = [
     lesson: 34,
     kanji: "",
     kana: "～グラム",
-    meaning: "",
+    meaning: "～ grams",
     pos: "noun"
   },
   {
@@ -16504,7 +16504,7 @@ export const lesson38 = [
     lesson: 38,
     kanji: "",
     kana: "～てん",
-    meaning: "",
+    meaning: "～ points",
     pos: "noun"
   },
   {
@@ -17266,21 +17266,21 @@ export const lesson40 = [
     lesson: 40,
     kanji: "",
     kana: "ーグラム",
-    meaning: "",
+    meaning: "～ grams",
     pos: "noun"
   },
   {
     lesson: 40,
     kanji: "",
     kana: "ーセンチ",
-    meaning: "",
+    meaning: "～ centimeters",
     pos: "noun"
   },
   {
     lesson: 40,
     kanji: "",
     kana: "ーミリ",
-    meaning: "",
+    meaning: "～ millimeters",
     pos: "noun"
   },
   {
