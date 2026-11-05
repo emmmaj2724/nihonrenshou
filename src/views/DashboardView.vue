@@ -22,7 +22,7 @@
                             placeholder="End (optional)">
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
                     <label class="form-label">
                         <strong>Question Direction</strong>
@@ -35,6 +35,48 @@
                         <label class="form-check-label" for="reverseDirection">
                             Japanese → English (Reverse)
                         </label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <strong>Vocabulary Type</strong>
+                    </label>
+
+                    <div class="d-flex gap-3">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="typeAll" value="all"
+                                v-model="vocabularyType">
+                            <label class="form-check-label" for="typeAll">
+                                All
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="typeAdjectives" value="adjectives"
+                                v-model="vocabularyType">
+                            <label class="form-check-label" for="typeAdjectives">
+                                Adj
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="typeVerbs" value="verbs"
+                                v-model="vocabularyType">
+                            <label class="form-check-label" for="typeVerbs">
+                                Verbs
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="typeAdjectivesVerbs"
+                                value="adjectives-verbs" v-model="vocabularyType">
+                            <label class="form-check-label" for="typeAdjectivesVerbs">
+                                Adj + Verbs
+                            </label>
+                        </div>
+
                     </div>
                 </div>
 
@@ -81,6 +123,7 @@ const lessonStart = ref()
 const lessonEnd = ref()
 const errorMessage = ref('')
 const reverseDirection = ref(false)
+const vocabularyType = ref('all')
 
 const startExam = () => {
 
@@ -108,7 +151,8 @@ const startExam = () => {
             duration: durationQuestions.value,
             start: lessonStart.value,
             end: lessonEnd.value,
-            direction: reverseDirection.value ? 'ja-to-en' : 'en-to-ja'
+            direction: reverseDirection.value ? 'ja-to-en' : 'en-to-ja',
+            type: vocabularyType.value
         }
     })
 

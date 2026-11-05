@@ -287,6 +287,10 @@ const questionDirection = computed(
     () => route.query.direction || 'en-to-ja'
 )
 
+const vocabularyType = computed(
+    () => route.query.type || 'all'
+)
+
 // ========================================
 // VOCABULARY
 // ========================================
@@ -396,26 +400,45 @@ const getWheelLabel = (item) => {
 // ========================================
 
 const generateVocabulary = () => {
-    const available =
-        allVocabulary.value.filter(
-            i =>
-                i.lesson >= lessonStart.value &&
-                i.lesson <= lessonEnd.value
-        )
+    // First, filter by lesson range
+    let available = allVocabulary.value.filter(
+        i =>
+            i.lesson >= lessonStart.value &&
+            i.lesson <= lessonEnd.value
+    )
 
-    const shuffled =
-        [...available].sort(
-            () => Math.random() - 0.5
+    // Then, filter by vocabulary type
+    if (vocabularyType.value === 'adjectives') {
+        available = available.filter(
+            i => i.pos === 'adj'
         )
+    }
 
-    remainingItems.value =
-        shuffled.slice(
-            0,
-            Math.min(
-                numQuestions.value,
-                shuffled.length
-            )
+    else if (vocabularyType.value === 'verbs') {
+        available = available.filter(
+            i => i.pos === 'verb'
         )
+    }
+
+    else if (vocabularyType.value === 'adjectives-verbs') {
+        available = available.filter(
+            i => ['adj', 'verb'].includes(i.pos)
+        )
+    }
+
+    // Shuffle the filtered vocabulary
+    const shuffled = [...available].sort(
+        () => Math.random() - 0.5
+    )
+
+    // Generate wheel items
+    remainingItems.value = shuffled.slice(
+        0,
+        Math.min(
+            numQuestions.value,
+            shuffled.length
+        )
+    )
 
     selectedItems.value = []
     currentItem.value = null
@@ -423,6 +446,7 @@ const generateVocabulary = () => {
     showPopup.value = false
     showHistory.value = false
     countdown.value = 0
+
     clearCountdown()
 }
 
