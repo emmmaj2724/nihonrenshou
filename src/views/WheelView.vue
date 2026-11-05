@@ -31,7 +31,7 @@
                         <div v-for="(item, index) in remainingItems" :key="item.id || index" class="wheel-label-outer"
                             :style="getLabelStyle(index)">
                             <span class="label-text-outer">
-                                {{ item.meaning }}
+                                {{ getWheelLabel(item) }}
                             </span>
                         </div>
 
@@ -95,7 +95,7 @@
                         </span>
 
                         <span class="popup-kana-text japanese text-capitalize">
-                            {{ currentItem.meaning }}
+                            {{ getWheelLabel(currentItem) }}
                         </span>
 
                     </div>
@@ -169,7 +169,7 @@
 
                             <div class="flex-grow-1">
                                 <div class="small fw-semibold text-capitalize">
-                                    {{ item.meaning }}
+                                    {{ getWheelLabel(item) }}
                                 </div>
                             </div>
 
@@ -244,6 +244,7 @@
 </template>
 
 
+
 <script setup>
 import {
     ref,
@@ -280,6 +281,10 @@ const lessonStart = computed(
 
 const lessonEnd = computed(
     () => Number(route.query.end) || lessonStart.value
+)
+
+const questionDirection = computed(
+    () => route.query.direction || 'en-to-ja'
 )
 
 // ========================================
@@ -375,6 +380,15 @@ const wheelColors = [
     '#da77f2',
     '#f783ac'
 ]
+
+const getWheelLabel = (item) => {
+
+    if (questionDirection.value == 'ja-to-en') {
+        return item.kana
+    }
+
+    return item.meaning
+}
 
 
 // ========================================

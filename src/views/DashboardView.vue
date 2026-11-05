@@ -12,13 +12,6 @@
                         </option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label"><strong>Item duration</strong></label>
-                    <select v-model="durationQuestions" class="form-select">
-                        <option v-for="n in [10, 15, 20, 30, 60]" :key="n" :value="n">{{ n }}
-                        </option>
-                    </select>
-                </div>
 
                 <div class="mb-3">
                     <label class="form-label"><strong>Vocabulary</strong>【1~50】</label>
@@ -27,6 +20,21 @@
                             placeholder="Start">
                         <input type="number" v-model.number="lessonEnd" class="form-control" min="1" max="50"
                             placeholder="End (optional)">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">
+                        <strong>Question Direction</strong>
+                    </label>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="reverseDirection"
+                            v-model="reverseDirection">
+
+                        <label class="form-check-label" for="reverseDirection">
+                            Japanese → English (Reverse)
+                        </label>
                     </div>
                 </div>
 
@@ -72,6 +80,7 @@ const durationQuestions = ref(20)
 const lessonStart = ref()
 const lessonEnd = ref()
 const errorMessage = ref('')
+const reverseDirection = ref(false)
 
 const startExam = () => {
 
@@ -98,7 +107,8 @@ const startExam = () => {
             items: numQuestions.value,
             duration: durationQuestions.value,
             start: lessonStart.value,
-            end: lessonEnd.value
+            end: lessonEnd.value,
+            direction: reverseDirection.value ? 'ja-to-en' : 'en-to-ja'
         }
     })
 
